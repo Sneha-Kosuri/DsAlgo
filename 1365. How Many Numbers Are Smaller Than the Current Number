@@ -1,0 +1,26 @@
+           
+        class Solution {
+    public int[] smallerNumbersThanCurrent(int[] nums) {
+                     
+        int count[];
+        count = new int[nums.length];
+        for(int i=0; i<nums.length;i++)
+        {
+           
+             int count_n=0;
+          for(int j=0;j<nums.length;j++)
+          {
+                        
+           if(nums[i]>nums[j])// checking numbers that are less than the given number
+           {
+            count_n++;// counting the number smaller than the number being compared
+            }
+              
+          }
+            count[i]=count_n;
+        }
+        
+    return count;        
+    }
+
+}
