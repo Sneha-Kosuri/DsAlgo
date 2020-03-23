@@ -1,0 +1,30 @@
+class Solution {
+    public int[] sortArrayByParityII(int[] A) {
+        int[] even = new int[A.length/2];
+        int[] odd = new int[A.length/2];
+       // int k=0;
+        for(int i=0,k=0,j=0;i<A.length;i++)
+        {
+            if(A[i]%2==0)
+            {
+                
+                even[k]=A[i];
+                k++;
+            }
+            else
+            {
+                odd[j]= A[i];
+                j++;
+            }
+        }
+        for(int i=0;i<A.length/2;i++)
+        {
+            A[2*i]=even[i];
+            A[2*i+1]=odd[i];
+        }
+        return A;    
+        //TC: 6-19=O(N) 20-24=O(N) TC:O(N)
+        //SC:AS 3-4 O(N), 6-O(3), IS:O(N)  O(N)   
+    }
+    
+}
