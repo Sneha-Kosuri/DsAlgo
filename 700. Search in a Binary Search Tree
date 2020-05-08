@@ -1,0 +1,44 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode searchBST(TreeNode root, int val) {
+        //Step 1: create a queue of the TreeNode object type
+        Queue<TreeNode> q = new LinkedList<>();
+        //Step 2: Check if queue is empty
+        q.add(root);
+        while(!q.isEmpty()){
+        //Check the value, we have 3 cases
+            TreeNode a = q.remove();
+        //store the element of the queue into a node
+        //Case 1 value = to the node
+            if(a.val==val)
+            {
+                return a;
+            }
+        
+        //Case 2 value > than the node
+        else if(a.val>val&&a.left!=null)
+        {
+            q.add(a.left);
+        }
+        //Value is less than the node
+        else if(a.val<val&&a.right!=null){
+            q.add(a.right);
+        }
+        }
+        return null;
+    }
+}
