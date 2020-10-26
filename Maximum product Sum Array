@@ -1,0 +1,24 @@
+// The brute force technique
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        if(nums.length==0)
+        {
+            return 0;
+        }
+        int product=1;
+        for(int i=0;i<nums.length;i++)
+        {
+            
+            int prod =1;
+            for(int j=0;j<nums.length;j++)
+            {
+                prod= nums[i]*prod;
+               product= Math.max(product,prod);
+            }
+        }
+        return product;
+    }
+}
+
+//I would however recommend using dynamic programming
